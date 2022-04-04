@@ -7,4 +7,5 @@ mod elasticsearch;
 mod postgres;
 mod redis;
 mod reqwest;
+mod sqlx;
 mod ureq;

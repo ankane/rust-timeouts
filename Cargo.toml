@@ -10,6 +10,7 @@ elasticsearch = "7.14.0-alpha.1"
 postgres = "*"
 redis = "*"
 reqwest = "*"
+sqlx = { version = "*", features = ["runtime-tokio-native-tls", "postgres"] }
 tokio = { version = "*", features = ["full"] }
 ureq = { version = "*" }
 url = { version = "*" }

@@ -18,6 +18,7 @@ Crates
 - [postgres](#postgres)
 - [redis](#redis)
 - [reqwest](#reqwest)
+- [sqlx](#sqlx)
 - [ureq](#ureq)
 
 ## Standard Library
@@ -70,6 +71,15 @@ or
 let resp = client.get(url)
     .timeout(Duration::from_secs(1))
     .send()
+    .await?;
+```
+
+### sqlx
+
+```rust
+let pool = sqlx::postgres::PgPoolOptions::new()
+    .connect_timeout(Duration::from_secs(1))
+    .connect(uri)
     .await?;
 ```
 
