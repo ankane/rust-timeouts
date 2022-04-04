@@ -13,8 +13,8 @@ macro_rules! assert_timeout {
         } else {
             panic!("No error");
         }
-        let elapsed = now.elapsed().as_secs();
-        assert!(elapsed >= 1 && elapsed < 2);
+        let elapsed = now.elapsed().as_secs_f32();
+        assert!((1.0..1.25).contains(&elapsed));
     };
 }
 
