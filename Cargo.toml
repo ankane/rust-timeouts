@@ -6,6 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+actix-rt = "*"
+awc = "*"
 curl = "*"
 elasticsearch = "7.14.0-alpha.1"
 postgres = "*"

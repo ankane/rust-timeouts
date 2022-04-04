@@ -14,6 +14,7 @@ Standard library
 
 Crates
 
+- [awc](#awc)
 - [curl](#curl)
 - [elasticsearch](#elasticsearch)
 - [postgres](#postgres)
@@ -33,6 +34,14 @@ stream.set_write_timeout(Some(Duration::from_secs(1)))?;
 ```
 
 ## Crates
+
+### awc
+
+```rust
+let client = awc::Client::builder()
+    .timeout(Duration::from_secs(1))
+    .finish();
+```
 
 ### curl
 
