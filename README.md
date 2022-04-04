@@ -14,6 +14,7 @@ Standard library
 
 Crates
 
+- [curl](#curl)
 - [elasticsearch](#elasticsearch)
 - [postgres](#postgres)
 - [redis](#redis)
@@ -32,6 +33,14 @@ stream.set_write_timeout(Some(Duration::from_secs(1)))?;
 ```
 
 ## Crates
+
+### curl
+
+```rust
+let mut easy = curl::easy::Easy::new();
+easy.connect_timeout(Duration::from_secs(1))?;
+easy.timeout(Duration::from_secs(1))?;
+```
 
 ### elasticsearch
 

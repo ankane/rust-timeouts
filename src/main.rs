@@ -7,6 +7,7 @@ mod helpers;
 
 mod std_tcpstream;
 
+mod curl;
 mod elasticsearch;
 mod postgres;
 mod redis;
