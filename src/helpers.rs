@@ -1,7 +1,8 @@
 use std::net::TcpListener;
 use std::sync::Once;
 use std::thread;
-use std::time::Duration;
+
+pub use std::time::Duration;
 
 macro_rules! assert_timeout {
     ($code:expr, $exp:expr) => {

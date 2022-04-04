@@ -1,5 +1,4 @@
-use crate::helpers;
-use std::time::Duration;
+use crate::helpers::*;
 
 #[test]
 fn test_connect() {
@@ -7,21 +6,21 @@ fn test_connect() {
         .timeout_connect(Duration::from_secs(1))
         .build();
     assert_timeout!(
-        agent.get(&helpers::connect_url()).call(),
+        agent.get(&connect_url()).call(),
         "connection timed out"
     );
 }
 
 #[test]
 fn test_read() {
-    helpers::setup_read();
+    setup_read();
 
     let agent = ureq::AgentBuilder::new()
         .timeout_read(Duration::from_secs(1))
         .timeout_write(Duration::from_secs(1))
         .build();
     assert_timeout!(
-        agent.get(&helpers::read_url()).call(),
+        agent.get(&read_url()).call(),
         "timed out reading response"
     );
 }

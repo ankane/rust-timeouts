@@ -1,12 +1,11 @@
-use crate::helpers;
-use std::time::Duration;
+use crate::helpers::*;
 
 #[test]
 fn test_connect() {
     let client = reqwest::blocking::Client::new();
     assert_timeout!(
         client
-            .get(helpers::connect_url())
+            .get(connect_url())
             .timeout(Duration::from_secs(1))
             .send(),
         "operation timed out"
@@ -20,19 +19,19 @@ fn test_connect_client() {
         .build()
         .unwrap();
     assert_timeout!(
-        client.get(helpers::connect_url()).send(),
+        client.get(connect_url()).send(),
         "operation timed out"
     );
 }
 
 #[test]
 fn test_read() {
-    helpers::setup_read();
+    setup_read();
 
     let client = reqwest::blocking::Client::new();
     assert_timeout!(
         client
-            .get(helpers::read_url())
+            .get(read_url())
             .timeout(Duration::from_secs(1))
             .send(),
         "operation timed out"
@@ -41,14 +40,14 @@ fn test_read() {
 
 #[test]
 fn test_read_client() {
-    helpers::setup_read();
+    setup_read();
 
     let client = reqwest::blocking::Client::builder()
         .timeout(Duration::from_secs(1))
         .build()
         .unwrap();
     assert_timeout!(
-        client.get(helpers::read_url()).send(),
+        client.get(read_url()).send(),
         "operation timed out"
     );
 }
