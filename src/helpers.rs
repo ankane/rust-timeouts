@@ -28,6 +28,8 @@ pub fn setup_read() {
                 stream.unwrap();
             }
         });
+        // give time to start
+        thread::sleep(Duration::from_millis(10));
     });
 }
 
@@ -35,8 +37,16 @@ pub fn connect_host() -> String {
     "10.255.255.1".to_string()
 }
 
+pub fn connect_port() -> i32 {
+    80
+}
+
+pub fn connect_host_and_port() -> String {
+    format!("{}:{}", connect_host(), connect_port())
+}
+
 pub fn connect_url() -> String {
-    format!("http://{}", connect_host())
+    format!("http://{}", connect_host_and_port())
 }
 
 pub fn read_host() -> String {

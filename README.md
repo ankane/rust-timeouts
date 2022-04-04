@@ -6,13 +6,31 @@ Here’s how to add timeouts for popular Rust crates. **[All have been tested](s
 
 [![Build Status](https://github.com/ankane/rust-timeouts/workflows/build/badge.svg?branch=master)](https://github.com/ankane/rust-timeouts/actions)
 
-## Crates
+## Contents
+
+Standard library
+
+- [TcpStream](#tcpstream)
+
+Crates
 
 - [elasticsearch](#elasticsearch)
 - [postgres](#postgres)
 - [redis](#redis)
 - [reqwest](#reqwest)
 - [ureq](#ureq)
+
+## Standard Library
+
+### TcpStream
+
+```rust
+let stream = std::net::TcpStream::connect_timeout(&addr, Duration::from_secs(1))?;
+stream.set_read_timeout(Some(Duration::from_secs(1)))?;
+stream.set_write_timeout(Some(Duration::from_secs(1)))?;
+```
+
+## Crates
 
 ### elasticsearch
 
