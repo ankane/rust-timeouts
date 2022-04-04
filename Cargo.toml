@@ -9,7 +9,7 @@ edition = "2021"
 elasticsearch = "7.14.0-alpha.1"
 postgres = "*"
 redis = "*"
-reqwest = { version = "*", features = ["blocking"] }
+reqwest = "*"
 tokio = { version = "*", features = ["full"] }
 ureq = { version = "*" }
 url = { version = "*" }

@@ -59,7 +59,7 @@ con.set_write_timeout(Some(Duration::from_secs(1)))?;
 ### reqwest
 
 ```rust
-let client = reqwest::blocking::Client::builder()
+let client = reqwest::Client::builder()
     .timeout(Duration::from_secs(1))
     .build()?;
 ```
@@ -69,7 +69,8 @@ or
 ```rust
 let resp = client.get(url)
     .timeout(Duration::from_secs(1))
-    .send()?;
+    .send()
+    .await?;
 ```
 
 ### ureq
