@@ -10,6 +10,7 @@ actix-rt = "*"
 awc = "*"
 curl = "*"
 elasticsearch = "7.14.0-alpha.1"
+hyper = { version = "*", features = ["full"] }
 postgres = "*"
 redis = "*"
 reqwest = "*"

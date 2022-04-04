@@ -10,6 +10,7 @@ mod std_tcpstream;
 mod awc;
 mod curl;
 mod elasticsearch;
+mod hyper;
 mod postgres;
 mod redis;
 mod reqwest;

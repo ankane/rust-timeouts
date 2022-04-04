@@ -17,6 +17,7 @@ Crates
 - [awc](#awc)
 - [curl](#curl)
 - [elasticsearch](#elasticsearch)
+- [hyper](#hyper)
 - [postgres](#postgres)
 - [redis](#redis)
 - [reqwest](#reqwest)
@@ -57,6 +58,12 @@ easy.timeout(Duration::from_secs(1))?;
 let transport = elasticsearch::http::transport::TransportBuilder::new(conn_pool)
     .timeout(Duration::from_secs(1))
     .build()?;
+```
+
+### hyper
+
+```rust
+tokio::time::timeout(Duration::from_secs(1), client.get(uri)).await?;
 ```
 
 ### postgres
