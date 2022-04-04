@@ -25,7 +25,7 @@ Crates
 ### TcpStream
 
 ```rust
-let stream = std::net::TcpStream::connect_timeout(&addr, Duration::from_secs(1))?;
+let mut stream = std::net::TcpStream::connect_timeout(&addr, Duration::from_secs(1))?;
 stream.set_read_timeout(Some(Duration::from_secs(1)))?;
 stream.set_write_timeout(Some(Duration::from_secs(1)))?;
 ```
