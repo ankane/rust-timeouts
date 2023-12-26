@@ -7,7 +7,7 @@ fn test_connect() {
     easy.connect_timeout(Duration::from_secs(1)).unwrap();
     assert_timeout!(
         easy.perform(),
-        "Connection timeout"
+        "Timeout was reached"
     );
 }
 
