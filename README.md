@@ -105,7 +105,7 @@ let resp = client.get(url)
 
 ```rust
 let pool = sqlx::postgres::PgPoolOptions::new()
-    .connect_timeout(Duration::from_secs(1))
+    .acquire_timeout(Duration::from_secs(1))
     .connect(uri)
     .await?;
 ```

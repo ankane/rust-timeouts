@@ -9,10 +9,10 @@ edition = "2021"
 actix-rt = "*"
 awc = "*"
 curl = "*"
-elasticsearch = "7.14.0-alpha.1"
-hyper = { version = "*", features = ["full"] }
+elasticsearch = "8.5.0-alpha.1"
+hyper = { version = "0", features = ["full"] }
 postgres = "*"
-redis = "*"
+redis = "0.23"
 reqwest = "*"
 sqlx = { version = "*", features = ["runtime-tokio-native-tls", "postgres"] }
 tokio = { version = "*", features = ["full"] }
