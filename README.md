@@ -6,7 +6,7 @@ Here’s how to add timeouts for popular Rust crates. **[All have been tested](s
 
 Also available for [Ruby](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts), [Python](https://github.com/ankane/python-timeouts), [Node](https://github.com/ankane/node-timeouts), and [Go](https://github.com/ankane/go-timeouts)
 
-[![Build Status](https://github.com/ankane/rust-timeouts/workflows/build/badge.svg?branch=master)](https://github.com/ankane/rust-timeouts/actions)
+[![Build Status](https://github.com/ankane/rust-timeouts/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/rust-timeouts/actions)
 
 ## Contents
 
