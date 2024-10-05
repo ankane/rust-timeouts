@@ -7,7 +7,8 @@ async fn test_connect() {
         client
             .get(connect_url())
             .timeout(Duration::from_secs(1))
-            .send().await,
+            .send()
+            .await,
         "operation timed out"
     );
 }
@@ -33,7 +34,8 @@ async fn test_read() {
         client
             .get(read_url())
             .timeout(Duration::from_secs(1))
-            .send().await,
+            .send()
+            .await,
         "operation timed out"
     );
 }
@@ -46,8 +48,5 @@ async fn test_read_client() {
         .timeout(Duration::from_secs(1))
         .build()
         .unwrap();
-    assert_timeout!(
-        client.get(read_url()).send().await,
-        "operation timed out"
-    );
+    assert_timeout!(client.get(read_url()).send().await, "operation timed out");
 }

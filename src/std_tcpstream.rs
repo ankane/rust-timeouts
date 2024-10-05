@@ -15,8 +15,12 @@ fn test_read() {
     setup_read();
 
     let mut stream = std::net::TcpStream::connect(&read_host_and_port()).unwrap();
-    stream.set_read_timeout(Some(Duration::from_secs(1))).unwrap();
-    stream.set_write_timeout(Some(Duration::from_secs(1))).unwrap();
+    stream
+        .set_read_timeout(Some(Duration::from_secs(1)))
+        .unwrap();
+    stream
+        .set_write_timeout(Some(Duration::from_secs(1)))
+        .unwrap();
     let mut buf = Vec::new();
     assert_timeout!(
         stream.read_to_end(&mut buf),

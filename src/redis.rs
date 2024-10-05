@@ -13,8 +13,7 @@ fn test_connect() {
 fn test_read() {
     setup_read();
 
-    let client =
-        redis::Client::open(format!("redis://{}/", read_host_and_port())).unwrap();
+    let client = redis::Client::open(format!("redis://{}/", read_host_and_port())).unwrap();
     let mut con = client.get_connection().unwrap();
     con.set_read_timeout(Some(Duration::from_secs(1))).unwrap();
     con.set_write_timeout(Some(Duration::from_secs(1))).unwrap();
