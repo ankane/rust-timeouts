@@ -113,10 +113,8 @@ let pool = sqlx::postgres::PgPoolOptions::new()
 ### ureq
 
 ```rust
-let agent = ureq::AgentBuilder::new()
-    .timeout_connect(Duration::from_secs(1))
-    .timeout_read(Duration::from_secs(1))
-    .timeout_write(Duration::from_secs(1))
+let config = ureq::Agent::config_builder()
+    .timeout_global(Some(Duration::from_secs(1)))
     .build();
 ```
 

@@ -9,7 +9,7 @@ edition = "2021"
 actix-rt = "*"
 awc = "*"
 curl = "*"
-elasticsearch = "8.5.0-alpha.1"
+elasticsearch = "8.17.0-alpha.1"
 hyper = { version = "0", features = ["full"] }
 postgres = "*"
 redis = "0.23"

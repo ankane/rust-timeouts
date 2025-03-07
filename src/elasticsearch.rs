@@ -12,7 +12,7 @@ async fn test_connect() {
     let client = elasticsearch::Elasticsearch::new(transport);
     assert_timeout!(
         client.search(elasticsearch::SearchParts::None).send().await,
-        "operation timed out"
+        "error sending request for url"
     );
 }
 
@@ -29,6 +29,6 @@ async fn test_read() {
     let client = elasticsearch::Elasticsearch::new(transport);
     assert_timeout!(
         client.search(elasticsearch::SearchParts::None).send().await,
-        "operation timed out"
+        "error sending request for url"
     );
 }
