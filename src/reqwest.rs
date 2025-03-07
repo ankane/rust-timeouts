@@ -9,6 +9,7 @@ async fn test_connect() {
             .timeout(Duration::from_secs(1))
             .send()
             .await,
+        reqwest::Error,
         "error sending request for url"
     );
 }
@@ -21,6 +22,7 @@ async fn test_connect_client() {
         .unwrap();
     assert_timeout!(
         client.get(connect_url()).send().await,
+        reqwest::Error,
         "error sending request for url"
     );
 }
@@ -36,6 +38,7 @@ async fn test_read() {
             .timeout(Duration::from_secs(1))
             .send()
             .await,
+        reqwest::Error,
         "error sending request for url"
     );
 }
@@ -50,6 +53,7 @@ async fn test_read_client() {
         .unwrap();
     assert_timeout!(
         client.get(read_url()).send().await,
+        reqwest::Error,
         "error sending request for url"
     );
 }

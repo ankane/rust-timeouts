@@ -7,6 +7,7 @@ async fn test_connect() {
         .finish();
     assert_timeout!(
         client.get(&connect_url()).send().await,
+        awc::error::SendRequestError,
         "Timeout while waiting for response"
     );
 }
@@ -20,6 +21,7 @@ async fn test_read() {
         .finish();
     assert_timeout!(
         client.get(&read_url()).send().await,
+        awc::error::SendRequestError,
         "Timeout while waiting for response"
     );
 }

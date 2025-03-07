@@ -7,6 +7,7 @@ async fn test_connect() {
             .acquire_timeout(Duration::from_secs(1))
             .connect(&format!("postgres://{}/dbname", connect_host_and_port()))
             .await,
+        sqlx::Error,
         "pool timed out while waiting for an open connection"
     );
 }

@@ -5,9 +5,10 @@ use std::thread;
 pub use std::time::Duration;
 
 macro_rules! assert_timeout {
-    ($code:expr, $exp:expr) => {
+    ($code:expr, $type:ty, $exp:expr) => {
         let now = std::time::Instant::now();
         if let Err(error) = $code {
+            let error: $type = error;
             let s = error.to_string();
             assert!(s.contains($exp), "{}", s);
         } else {

@@ -5,6 +5,7 @@ fn test_connect() {
     let client = redis::Client::open(format!("redis://{}/", connect_host_and_port())).unwrap();
     assert_timeout!(
         client.get_connection_with_timeout(Duration::from_secs(1)),
+        redis::RedisError,
         "connection timed out"
     );
 }
@@ -19,6 +20,7 @@ fn test_read() {
     con.set_write_timeout(Some(Duration::from_secs(1))).unwrap();
     assert_timeout!(
         redis::cmd("GET").arg("key").query::<()>(&mut con),
+        redis::RedisError,
         "Resource temporarily unavailable"
     );
 }

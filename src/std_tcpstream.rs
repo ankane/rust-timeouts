@@ -6,6 +6,7 @@ fn test_connect() {
     let addr: std::net::SocketAddr = connect_host_and_port().parse().unwrap();
     assert_timeout!(
         std::net::TcpStream::connect_timeout(&addr, Duration::from_secs(1)),
+        std::io::Error,
         "connection timed out"
     );
 }
@@ -24,6 +25,7 @@ fn test_read() {
     let mut buf = Vec::new();
     assert_timeout!(
         stream.read_to_end(&mut buf),
+        std::io::Error,
         "Resource temporarily unavailable"
     );
 }

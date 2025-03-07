@@ -36,6 +36,8 @@ stream.set_read_timeout(Some(Duration::from_secs(1)))?;
 stream.set_write_timeout(Some(Duration::from_secs(1)))?;
 ```
 
+Returns `std::io::Error`
+
 ## Crates
 
 ### awc
@@ -46,6 +48,8 @@ let client = awc::Client::builder()
     .finish();
 ```
 
+Returns `awc::error::SendRequestError`
+
 ### curl
 
 ```rust
@@ -53,6 +57,8 @@ let mut easy = curl::easy::Easy::new();
 easy.connect_timeout(Duration::from_secs(1))?;
 easy.timeout(Duration::from_secs(1))?;
 ```
+
+Returns `curl::Error`
 
 ### elasticsearch
 
@@ -62,11 +68,15 @@ let transport = elasticsearch::http::transport::TransportBuilder::new(conn_pool)
     .build()?;
 ```
 
+Returns `elasticsearch::Error`
+
 ### hyper
 
 ```rust
 tokio::time::timeout(Duration::from_secs(1), client.get(uri)).await?;
 ```
+
+Returns `tokio::time::error::Elapsed`
 
 ### postgres
 
@@ -76,6 +86,8 @@ let client = postgres::Config::new()
     .connect(postgres::NoTls)?;
 ```
 
+Returns `postgres::Error`
+
 ### redis
 
 ```rust
@@ -83,6 +95,8 @@ let mut con = client.get_connection_with_timeout(Duration::from_secs(1))?;
 con.set_read_timeout(Some(Duration::from_secs(1)))?;
 con.set_write_timeout(Some(Duration::from_secs(1)))?;
 ```
+
+Returns `redis::RedisError`
 
 ### reqwest
 
@@ -101,6 +115,8 @@ let resp = client.get(url)
     .await?;
 ```
 
+Returns `reqwest::Error`
+
 ### sqlx
 
 ```rust
@@ -110,6 +126,8 @@ let pool = sqlx::postgres::PgPoolOptions::new()
     .await?;
 ```
 
+Returns `sqlx::Error`
+
 ### ureq
 
 ```rust
@@ -117,6 +135,8 @@ let config = ureq::Agent::config_builder()
     .timeout_global(Some(Duration::from_secs(1)))
     .build();
 ```
+
+Returns `ureq::Error`
 
 ## Don’t see a library you use?
 

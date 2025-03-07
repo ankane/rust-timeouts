@@ -7,6 +7,7 @@ fn test_connect() {
             .host(&connect_host())
             .connect_timeout(Duration::from_secs(1))
             .connect(postgres::NoTls),
+        postgres::Error,
         "connection timed out"
     );
 }

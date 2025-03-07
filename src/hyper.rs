@@ -6,6 +6,7 @@ async fn test_connect() {
     let uri = connect_url().parse().unwrap();
     assert_timeout!(
         tokio::time::timeout(Duration::from_secs(1), client.get(uri)).await,
+        tokio::time::error::Elapsed,
         "deadline has elapsed"
     );
 }
@@ -18,6 +19,7 @@ async fn test_read() {
     let uri = read_url().parse().unwrap();
     assert_timeout!(
         tokio::time::timeout(Duration::from_secs(1), client.get(uri)).await,
+        tokio::time::error::Elapsed,
         "deadline has elapsed"
     );
 }
